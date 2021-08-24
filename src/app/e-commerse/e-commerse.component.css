@@ -1,0 +1,11 @@
+.truncate {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.menu-list {
+    position: sticky; 
+    top: 45px; 
+    z-index: 5;
+}

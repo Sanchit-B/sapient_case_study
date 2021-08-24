@@ -1,0 +1,28 @@
+.banner {
+    /* display: block;
+    height: 100px;
+    width: 100%; */
+    border: 1px solid red;
+    border-radius: 5px;
+    cursor: pointer;
+    animation-name: simpleAnimation;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate-reverse;
+    animation-timing-function: ease-in;
+}
+
+  @keyframes simpleAnimation {
+    from {
+        background-color: orange;
+        height: 100px;
+    }
+    to {
+        background-color: lightgreen;
+        height: 300px;
+        transform: scale(0.5);
+    }
+  }
+
+  
+    

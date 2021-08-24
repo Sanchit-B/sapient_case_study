@@ -1,0 +1,6 @@
+.side-menu {
+    width: 250px;
+    height: 100%;
+    background-color: bisque;
+    position: fixed;
+}

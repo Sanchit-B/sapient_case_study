@@ -1,0 +1,45 @@
+<div class="row mt-5">
+    <div class="col-md-5 offset-md-1 mr-1">
+        <div class="card">
+            <div class="card-header">
+                Timer Input Component
+            </div>
+            <div class="card-body">
+                <app-timer-input (timerValue)="startTimer($event)" (pauseCounter)="pauseCounter($event)" (resetValue)="resetValue()"></app-timer-input>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5 ">
+        <div class="card">
+            <div class="card-header">
+                Timer Component
+            </div>
+            <div class="card-body">
+                <app-timer [timerValue]="timerValue" [pauseCounter]="pause"></app-timer>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-md-5 offset-md-1 mr-1">
+        <div class="card">
+            <div class="card-header">
+                Time Logger Component
+            </div>
+            <div class="card-body">
+                <app-time-logger [timerValue]="timerValue" [pauseCounter]="pause" (totalCountEvent)="totalCountEvent($event)"></app-time-logger>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-5 ">
+        <div class="card">
+            <div class="card-header">
+                Count Logger Component
+            </div>
+            <div class="card-body">
+                <app-count-logger [totalCountEvent]="totCount"></app-count-logger>
+            </div>
+        </div>
+    </div>
+</div>

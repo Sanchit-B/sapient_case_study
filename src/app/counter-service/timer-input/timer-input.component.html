@@ -1,0 +1,22 @@
+<div class="row">
+    <div class="col-12 col-md-12">
+        <form [formGroup]="timerForm" (ngSubmit)="submit()">
+            <fieldset>
+                <legend>Start Counter</legend>
+                <label for="count">Enter Count Value</label>
+                
+                <br>
+                
+                <input type="number" id="count" formControlName="timerValue" matInput > 
+                
+                <br>
+                <br>
+
+                <button type="submit" class="btn btn-sm btn-primary">Start/Pause</button>
+                <button type="button" class="btn btn-sm btn-primary" (click)="reset()" >Reset</button>
+            </fieldset>
+        </form>
+        
+        
+    </div>
+</div>
