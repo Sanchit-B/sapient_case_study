@@ -31,8 +31,8 @@ export class TimerInputComponent implements OnInit {
     if(this.timerForm.controls.timerValue.value && this.timerForm.controls.timerValue.value !==0) {
       this.timerValue = this.timerForm.controls.timerValue.value;
       this.pauseCounter = this.pauseCounter ? !this.pauseCounter : this.pauseCounter;
-      this._counterService.pauseCounter.next(this.pauseCounter);
       this._counterService.resetValue.next(true);
+      this._counterService.pauseCounter.next(this.pauseCounter);
 
       this.startTimer();
       this.timerForm.reset();

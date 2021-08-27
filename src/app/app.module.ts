@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,7 +12,6 @@ import { MaterialModule } from './material/material.module';
 import { HighlighterDirective } from './highlighter.directive';
 import { UnlessDirective } from './unless.directive';
 import { DropdownDirective } from './dropdown.directive';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ProductsService } from './products.service';
 import { CounterService } from './counter-service/counter.service';
 
@@ -27,16 +26,16 @@ import { CounterService } from './counter-service/counter.service';
   ],
   imports: [
     BrowserModule,
+    MaterialModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    MaterialModule,
-    NgbModule,
   ],
   providers: [
     ProductsService,
     CounterService
   ],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -35,6 +35,10 @@ export class TimeLoggerComponent implements OnInit {
   getTotalPaused() {
     let length = this.startPauses.filter((val: any) => val.eventOccured === 'PAUSED').length;
 
+    console.log({
+      paused: length,
+      starts: this.startPauses.length - length
+    });
     this._counterService.totalCount.next({
       paused: length,
       starts: this.startPauses.length - length

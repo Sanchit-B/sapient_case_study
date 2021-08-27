@@ -1,0 +1,23 @@
+[
+    {"class": 1, "name": "sunny", "section": "A", "subj1": 65, "subj2": 56, "subj3": 34},
+    {"class": 3, "name": "sam", "section": "A", "subj1": 90, "subj2": 89, "subj3": 67},
+    {"class": 3, "name": "mehul", "section": "A", "subj1": 78, "subj2": 67, "subj3": 88},
+    {"class": 4, "name": "ajay", "section": "A", "subj1": 78, "subj2": 45, "subj3": 89},
+    {"class": 5, "name": "sourabh", "section": "A", "subj1": 99, "subj2": 90, "subj3": 88},
+    {"class": 6, "name": "rishi", "section": "A", "subj1": 78, "subj2": 66, "subj3": 23},
+    {"class": 2, "name": "mayank", "section": "A", "subj1": 65, "subj2": 44, "subj3": 56},
+    {"class": 2, "name": "rahul", "section": "A", "subj1": 78, "subj2": 77, "subj3": 77},
+    {"class": 4, "name": "ika", "section": "A", "subj1": 67, "subj2": 87, "subj3": 66},
+    {"class": 5, "name": "william", "section": "A", "subj1": 78, "subj2": 87, "subj3": 45},
+    {"class": 8, "name": "rohini", "section": "A", "subj1": 66, "subj2": 88, "subj3": 55},
+    {"class": 4, "name": "aakriti", "section": "A", "subj1": 69, "subj2": 87, "subj3": 66},
+    {"class": 2, "name": "rishu", "section": "A", "subj1": 88, "subj2": 87, "subj3": 77},
+    {"class": 9, "name": "ahmed", "section": "A", "subj1": 88, "subj2": 62, "subj3": 88},
+    {"class": 9, "name": "atul", "section": "A", "subj1": 78, "subj2": 89, "subj3": 89},
+    {"class": 12, "name": "karishma", "section": "A", "subj1": 69, "subj2": 87, "subj3": 78},
+    {"class": 7, "name": "simmy", "section": "A", "subj1": 78, "subj2": 87, "subj3": 90},
+    {"class": 6, "name": "surbhi", "section": "A", "subj1": 78, "subj2": 90, "subj3": 100},
+    {"class": 12, "name": "shivangi", "section": "A", "subj1": 45, "subj2": 55, "subj3": 45},
+    {"class": 8, "name": "purvi", "section": "A", "subj1": 33, "subj2": 33, "subj3": 12},
+    {"class": 9, "name": "ritu", "section": "A", "subj1": 56, "subj2": 67, "subj3": 67}
+  ]

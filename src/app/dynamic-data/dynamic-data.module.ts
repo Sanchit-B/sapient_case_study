@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { DynamicDataRoutingModule } from './dynamic-data-routing.module';
 import { DynamicDivComponent } from './dynamic-div/dynamic-div.component';
 import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
+import { MaterialModule } from '../material/material.module';
 
 
 @NgModule({
@@ -13,7 +14,8 @@ import { DynamicTableComponent } from './dynamic-table/dynamic-table.component';
   ],
   imports: [
     CommonModule,
-    DynamicDataRoutingModule
+    DynamicDataRoutingModule,
+    MaterialModule
   ],
   exports: [
     DynamicDivComponent,
