@@ -8,6 +8,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 export class DynamicDivComponent implements OnInit {
 
   dynamicDivs = [];
+  lastOffset = 0;
   constructor() { }
 
   ngOnInit(): void {
@@ -16,9 +17,12 @@ export class DynamicDivComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   public onScrollingEvent(): void {
-    if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
+    let totScroll = window.innerHeight + window.scrollY;
+    if ((totScroll - this.lastOffset) > document.body.offsetHeight) {
+      // console.log((totScroll - this.lastOffset), document.body.offsetHeight);
+      this.lastOffset = totScroll;
       let start = this.dynamicDivs.length;
-      this.appendDivs(start, start+10);      
+      this.appendDivs(start, start+5);      
     }
   }
 

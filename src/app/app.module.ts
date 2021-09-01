@@ -26,10 +26,10 @@ import { CounterService } from './counter-service/counter.service';
   ],
   imports: [
     BrowserModule,
-    MaterialModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
+    MaterialModule,
   ],
   providers: [
     ProductsService,

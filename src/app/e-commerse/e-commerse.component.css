@@ -7,5 +7,21 @@
 .menu-list {
     position: sticky; 
     top: 45px; 
-    z-index: 5;
+    z-index: 1;
+}
+
+::ng-deep .mat-form-field-appearance-outline > .mat-form-field-wrapper {
+    margin: 0px;
+}
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-start {
+    border-radius: 5px 0 0 5px;
+    border-right-style: none;
+    background: white;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline-end {
+    border-radius: 0 5px 5px 0;
+    border-left-style: none;
+    flex-grow: 1;
+    background: white;
 }

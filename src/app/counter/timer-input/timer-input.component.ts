@@ -27,10 +27,14 @@ export class TimerInputComponent implements OnInit {
 
   submit() {
     if(this.timerForm.controls.timerValue.value && this.timerForm.controls.timerValue.value !==0) {
+      let timerVal = this.timerForm.controls.timerValue.value;
       this.pause = this.pause ? !this.pause : this.pause;
-      this.pauseCounter.emit(this.pause);
-      this.timerValue.emit(this.timerForm.controls.timerValue.value);
-      this.timerForm.reset();
+      this.reset();
+      setTimeout(() => {
+        this.pauseCounter.emit(this.pause);
+        this.timerValue.emit(timerVal);
+        this.timerForm.reset();
+      }, 100);
     } else {
       this.pause = !this.pause;
       this.pauseCounter.emit(this.pause);
@@ -39,7 +43,7 @@ export class TimerInputComponent implements OnInit {
 
   reset() {
     this.timerForm.controls.timerValue.setValue(0);
-    this.resetValue.emit();
+    this.resetValue.emit(true);
   }
 
 }

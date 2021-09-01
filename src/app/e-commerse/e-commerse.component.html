@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-end menu-list">
-    <div class="d-inline-flex p-2 bd-highlight">
-        <div class="btn-group d-none d-sm-inline" role="group" aria-label="Basic example">
+    <div class="d-inline-flex p-2">
+        <div class="btn-group d-none d-sm-inline pr-2" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-primary" (click)="gridView=true">
                 <mat-icon>
                     apps
@@ -13,32 +13,37 @@
             </button>
         </div>
 
-        <div class="btn-group" dropdown>
-            <button dropdownToggle type="button" class="btn btn-primary dropdown-toggle">
-              Filter <span class="caret"></span>
-            </button>
-            <ul *dropdownMenu class="dropdown-menu" role="menu">
-              <li role="menuitem"><a class="dropdown-item" href="#">Action</a></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Another action</a></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Something else here</a></li>
-              <li class="divider dropdown-divider"></li>
-              <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
-              </li>
-            </ul>
-        </div>
-        <!-- <div class="d-inline-block" ngbDropdown #myDrop="ngbDropdown">
-            <button class="btn btn-outline-primary mr-2" id="dropdownManual" ngbDropdownAnchor (focus)="myDrop.open()">Toggle dropdown</button>
-            <div ngbDropdownMenu aria-labelledby="dropdownManual">
-              <button ngbDropdownItem>Action - 1</button>
-              <button ngbDropdownItem>Another Action</button>
-              <button ngbDropdownItem>Something else is here</button>
-            </div>
-        </div> -->
+        <mat-form-field appearance="outline">
+            <mat-select placeholder="Filter">
+              <mat-option 
+                *ngFor="let price of pricelist" 
+                [value]="price.value" 
+                (onSelectionChange)="filterList($event)"
+            >
+                {{price.value}}
+              </mat-option>
+            </mat-select>
+        </mat-form-field>
+          
     </div>
 </div>
 
-<div class="row mt-5">
-    <div [ngClass]=" gridView ? 'col-10 offset-1 col-sm-6 offset-sm-0 col-md-4 col-lg-3 mt-3' : 'col-10 offset-1 col-sm-6 offset-sm-0 col-md-4 offset-md-1 col-lg-3 offset-lg-2 mt-3' " *ngFor="let product of products">
+<div class="d-flex flex-row justify-content-center mt-5" *ngIf="isLoading">
+    <div class="row">
+        <div class="col-12">
+            <mat-spinner></mat-spinner>
+        </div>
+        <div class="col-12 mt-3">
+            <p>Please wait...</p>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5" *ngIf="!isLoading">
+    <div 
+        [ngClass]=" gridView ? 'col-10 offset-1 col-sm-6 offset-sm-0 col-md-4 col-lg-3 mt-3' : 'col-10 offset-1 col-sm-6 offset-sm-0 col-md-4 offset-md-1 col-lg-3 offset-lg-2 mt-3' " 
+        *ngFor="let product of filteredProducts"
+    >
         <div class="card">
             <img [src]="product.image" class="card-img-top" [alt]="product.description" height="300" width="300">
             <div class="card-body">

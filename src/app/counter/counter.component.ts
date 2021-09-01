@@ -32,7 +32,7 @@ export class CounterComponent implements OnInit {
     this.totCount = $event;
   }
 
-  resetValue() {
+  resetValue($event: any) {
     this.pause = true;
     this.timerValue = 0;
   }
