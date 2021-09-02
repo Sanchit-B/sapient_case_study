@@ -18,6 +18,7 @@ export class ECommerseComponent implements OnInit {
     {value: '500'},
     {value: '1000'}
   ];
+  defaultOption = 'None';
 
   isLoading = false;
   constructor(

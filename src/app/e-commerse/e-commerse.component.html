@@ -1,5 +1,5 @@
 <div class="d-flex justify-content-end menu-list">
-    <div class="d-inline-flex p-2">
+    <div class="d-inline-flex p-2 mt-5 mt-sm-0">
         <div class="btn-group d-none d-sm-inline pr-2 pt-1" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-primary" (click)="gridView=true">
                 <mat-icon>
@@ -14,7 +14,8 @@
         </div>
 
         <mat-form-field appearance="outline">
-            <mat-select placeholder="Filter">
+            <mat-label>Price Filter</mat-label>
+            <mat-select [(value)]="defaultOption">
               <mat-option 
                 *ngFor="let price of pricelist" 
                 [value]="price.value" 
