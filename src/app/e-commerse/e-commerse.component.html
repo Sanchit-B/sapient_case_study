@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-end menu-list">
     <div class="d-inline-flex p-2">
-        <div class="btn-group d-none d-sm-inline pr-2" role="group" aria-label="Basic example">
+        <div class="btn-group d-none d-sm-inline pr-2 pt-1" role="group" aria-label="Basic example">
             <button type="button" class="btn btn-primary" (click)="gridView=true">
                 <mat-icon>
                     apps
@@ -44,7 +44,7 @@
         [ngClass]=" gridView ? 'col-10 offset-1 col-sm-6 offset-sm-0 col-md-4 col-lg-3 mt-3' : 'col-10 offset-1 col-sm-6 offset-sm-0 col-md-4 offset-md-1 col-lg-3 offset-lg-2 mt-3' " 
         *ngFor="let product of filteredProducts"
     >
-        <div class="card">
+        <div class="card" appHighlighter>
             <img [src]="product.image" class="card-img-top" [alt]="product.description" height="300" width="300">
             <div class="card-body">
                 <p class="truncate" [title]="product.title">{{ product.title }}</p>

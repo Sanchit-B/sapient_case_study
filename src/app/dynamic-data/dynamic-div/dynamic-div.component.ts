@@ -33,7 +33,7 @@ export class DynamicDivComponent implements OnInit {
   }
 
   showAlert(divcount) {
-    alert(`Button  in div ${divcount} clicked`)
+    alert(`Button in div ${divcount} clicked`)
   }
 
 }

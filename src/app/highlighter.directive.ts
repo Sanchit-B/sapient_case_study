@@ -9,7 +9,9 @@ export class HighlighterDirective implements OnInit {
 
 
   @HostBinding('style.backgroundColor') backgroundColor: string;
-  @HostBinding('style.color') color: string = 'black';
+  @HostBinding('style.color') color: string;
+  @HostBinding('style.cursor') cursor: string;
+  @HostBinding('style.border') border: string;
 
   constructor(
     private elRef: ElementRef,
@@ -17,16 +19,20 @@ export class HighlighterDirective implements OnInit {
   ) { }
 
   ngOnInit() {
-    this.elRef.nativeElement.style.background = 'red';
+    // this.elRef.nativeElement.style.background = 'red';
 
-    this.elRef.nativeElement.style.color = 'white';
+    // this.elRef.nativeElement.style.color = 'white';
 
-    this.elRef.nativeElement.style.padding = '10px';
+    // this.elRef.nativeElement.style.padding = '10px';
 
-    this.backgroundColor = this.defaultColor;
+    
+    this.backgroundColor = 'white';
+    this.cursor = 'default';
+    // this.color = this.defaultColor;
+    // this.border = '1px solid rgba(0,0,0,.125)';
   }
 
-  @HostListener('mouseenter') mouseover(eventData: Event) {
+  @HostListener('mouseenter') mouseover() {
     
     // changing dom UI using renderer
 
@@ -36,8 +42,12 @@ export class HighlighterDirective implements OnInit {
     // Or
     // changing dom UI using @HostBinding
 
-    this.backgroundColor = this.highlightColor;
-    this.color = 'red';
+    // this.backgroundColor = this.highlightColor;
+    this.cursor = 'pointer';
+    this.backgroundColor = 'rgba(0,0,0,.1)';
+    // this.color = this.highlightColor;
+    // this.border = '1px solid blue';
+
   }
 
   @HostListener('mouseleave') mouseleave(eventData: Event) {
@@ -50,8 +60,12 @@ export class HighlighterDirective implements OnInit {
     // Or
     // changing dom UI using @HostBinding
 
-    this.backgroundColor = this.defaultColor;
-    this.color = 'black';
+    // this.backgroundColor = this.defaultColor;
+    this.cursor = 'default';
+    this.backgroundColor = 'white';
+    // this.color = this.defaultColor;
+    // this.border = '1px solid rgba(0,0,0,.125)';
+
   }
 
 }
