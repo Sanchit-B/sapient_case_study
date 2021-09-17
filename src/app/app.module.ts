@@ -14,6 +14,7 @@ import { UnlessDirective } from './unless.directive';
 import { DropdownDirective } from './dropdown.directive';
 import { ProductsService } from './products.service';
 import { CounterService } from './counter-service/counter.service';
+import { shortenPipe } from './shorten.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { CounterService } from './counter-service/counter.service';
     ECommerseComponent,
     HighlighterDirective,
     UnlessDirective,
-    DropdownDirective
+    DropdownDirective,
+    shortenPipe
   ],
   imports: [
     BrowserModule,

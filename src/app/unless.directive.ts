@@ -1,3 +1,5 @@
+// Structural Directive
+
 import { Directive, Input, TemplateRef, ViewContainerRef } from '@angular/core';
 
 @Directive({
@@ -11,7 +13,7 @@ export class UnlessDirective {
       this.vcRef.clear();
     };
   }
-  
+
 
   constructor(private tempRef: TemplateRef<any>, private vcRef: ViewContainerRef) { }
 

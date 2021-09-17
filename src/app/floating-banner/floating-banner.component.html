@@ -1,5 +1,13 @@
-<div class="d-flex justify-content-center banner" style="margin-top: 5rem;">
+<!-- <div class="d-flex justify-content-center banner" style="margin-top: 5rem;">
     <div class="p-2 bd-highlight">This is sample Text</div>
-</div>
+</div> -->
 
 <!-- <p class="m-5" appHighlighter="lightblue" defaultColor="transparent" *appUnless="istrue">This is sample Text</p> -->
+
+<div [@banner]='state' style="width:90%;
+margin-top: 200px;
+height: 200px"></div>
+
+<hr>
+<button type="button" (click)="stateChange()">Animate</button> | 
+<button type="button" (click)="shrunkState()">Shrunk</button>
