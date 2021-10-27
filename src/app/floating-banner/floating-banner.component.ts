@@ -1,5 +1,6 @@
 import { state, transition, style, animate, trigger } from '@angular/animations';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Observer, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-floating-banner',
@@ -41,13 +42,69 @@ import { Component, OnInit } from '@angular/core';
     ])
   ]
 })
-export class FloatingBannerComponent implements OnInit {
+export class FloatingBannerComponent implements OnInit, OnDestroy {
 
   istrue = false;
   state="normal";
+  subscriptions: Subscription[] = [];
+
   constructor() { }
 
   ngOnInit(): void {
+    let obs = new Observable((observer: Observer<number>) => {
+      this.createObs(observer, 0);
+    })
+
+    let sub1 = obs.subscribe(
+      res => {
+        console.log(res);
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {
+
+      }
+    )
+
+    this.subscriptions.push(sub1);
+
+    let obs1 = new Observable((observer: Observer<number>) => {
+      this.createObs(observer, 0);
+    })
+
+    let sub2;
+    setTimeout(() => {
+      sub2 = obs1.subscribe(
+        res => {
+          console.log(res);
+        },
+        (err) => {
+          console.log(err);
+        },
+        () => {
+
+        }
+      )
+
+      this.subscriptions.push(sub2);
+    }, 1000);
+
+
+  }
+
+  createObs(ob: Observer<number>, id) {
+    setTimeout(() => {
+      ob.next(id)
+      this.createObs(ob, ++id);
+    }, 1000);
+  }
+
+  ngOnDestroy() {
+    this.subscriptions.forEach((sub) => {
+      // console.log(sub);
+      sub.unsubscribe();
+    });
   }
 
   stateChange() {

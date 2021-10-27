@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CanComponentDeactivate } from '../can-deactivate-guard.service';
 
 @Component({
   selector: 'app-counter',
   templateUrl: './counter.component.html',
   styleUrls: ['./counter.component.css']
 })
-export class CounterComponent implements OnInit {
+export class CounterComponent implements OnInit, CanComponentDeactivate {
 
   timerValue: number = 0;
   pause = true;
@@ -25,7 +27,7 @@ export class CounterComponent implements OnInit {
   }
 
   pauseCounter($event: any) {
-    this.pause = $event; 
+    this.pause = $event;
   }
 
   totalCountEvent($event: any) {
@@ -35,6 +37,10 @@ export class CounterComponent implements OnInit {
   resetValue($event: any) {
     this.pause = true;
     this.timerValue = 0;
+  }
+
+  canDeactivate(): Observable<boolean>|Promise<boolean>|boolean {
+    return this.pause;
   }
 
 }

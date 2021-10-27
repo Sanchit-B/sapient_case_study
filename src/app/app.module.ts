@@ -15,6 +15,8 @@ import { DropdownDirective } from './dropdown.directive';
 import { ProductsService } from './products.service';
 import { CounterService } from './counter-service/counter.service';
 import { shortenPipe } from './shorten.pipe';
+import { PlaceholderDirective } from './placeholder.directive';
+import { AlertComponentComponent } from './dynamic-component/alert-component/alert-component.component';
 
 @NgModule({
   declarations: [
@@ -24,10 +26,10 @@ import { shortenPipe } from './shorten.pipe';
     HighlighterDirective,
     UnlessDirective,
     DropdownDirective,
-    shortenPipe
+    shortenPipe,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
@@ -38,6 +40,9 @@ import { shortenPipe } from './shorten.pipe';
     CounterService
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [
+    AlertComponentComponent
+  ]
 })
 export class AppModule { }
