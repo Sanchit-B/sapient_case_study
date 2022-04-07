@@ -1,40 +1,47 @@
-<nav class="navbar navbar-dark bg-dark fixed-top ">
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-12">
-        <a class="navbar-brand" routerLinkActive="active" routerLink="/floating-banner">
-          Banner
-        </a>
-        <a class="navbar-brand" routerLinkActive="active" routerLink="/operators">
-          Operators
-        </a>
-        <a class="navbar-brand" routerLinkActive="active" routerLink="/e-commerse">
-          e-Commerse
-        </a>
-        <a class="navbar-brand" routerLinkActive="active" routerLink="/counter">
-          Counter
-        </a>
-        <a class="navbar-brand" routerLinkActive="active" routerLink="/counter-service">
-          Counter Service
-        </a>
-        <a class="navbar-brand" routerLinkActive="active" routerLink="/dynamic-data">
-          Dynamic Div
-        </a>
-        <a class="navbar-brand" routerLinkActive="active" routerLink="/dynamic-data/table">
-          Dynamic Table
-        </a>
-        <a class="navbar-brand" routerLinkActive="active" routerLink="/dynamic-component">
-          Dynamic Alert
-        </a>
-      </div>
-    </div>
+<div class="row">
+  <div class="col-2">
+    <!-- <div style="height: 100vh; background-color: blanchedalmond;">
+      
+    </div> -->
   </div>
-</nav>
-
-<!-- <nav class="side-menu">
-
-</nav> -->
-<main>
-  <router-outlet></router-outlet>
-</main>
-
+  <div class="col-10">
+    <nav class="navbar navbar-dark bg-dark ">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12">
+            <a class="navbar-brand" routerLinkActive="active" routerLink="/floating-banner">
+              Banner
+            </a>
+            <a class="navbar-brand" routerLinkActive="active" routerLink="/operators">
+              Operators
+            </a>
+            <a class="navbar-brand" routerLinkActive="active" routerLink="/e-commerse">
+              e-Commerse
+            </a>
+            <a class="navbar-brand" routerLinkActive="active" routerLink="/counter">
+              Counter
+            </a>
+            <a class="navbar-brand" routerLinkActive="active" routerLink="/counter-service">
+              Counter Service
+            </a>
+            <a class="navbar-brand" routerLinkActive="active" routerLink="/dynamic-data">
+              Dynamic_Div
+            </a>
+            <a class="navbar-brand" routerLinkActive="active" routerLink="/dynamic-data/table">
+              Dynamic_Table
+            </a>
+            <a class="navbar-brand" routerLinkActive="active" routerLink="/dynamic-component">
+              Dynamic_Alert
+            </a>
+            <a class="navbar-brand" routerLinkActive="active" routerLink="/dynamic-data/mat-table">
+              Dynamic_Mat_Table
+            </a>       
+          </div>
+        </div>
+      </div>
+    </nav>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
+  </div>
+</div>

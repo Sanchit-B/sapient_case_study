@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './auth-guard.service';
 import { CanDeactivateGuard } from './can-deactivate-guard.service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { ECommerseComponent } from './e-commerse/e-commerse.component';
 import { FloatingBannerComponent } from './floating-banner/floating-banner.component';
 
@@ -14,6 +15,9 @@ const routes: Routes = [
 
   {
     path: 'e-commerse', component: ECommerseComponent
+  },
+  {
+    path: 'dashboard', component: DashboardComponent
   },
   {
     path: 'operators',
@@ -37,7 +41,7 @@ const routes: Routes = [
     loadChildren: () => import('./dynamic-component/dynamic-component.module').then(m => m.DynamicComponentModule)
   },
   {
-    path: '', pathMatch: "full", redirectTo: 'floating-banner'
+    path: '', pathMatch: "full", redirectTo: 'dashboard'
   },
   {
     path: '**', pathMatch: "full", redirectTo: 'floating-banner'

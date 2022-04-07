@@ -17,6 +17,9 @@ import { CounterService } from './counter-service/counter.service';
 import { shortenPipe } from './shorten.pipe';
 import { PlaceholderDirective } from './placeholder.directive';
 import { AlertComponentComponent } from './dynamic-component/alert-component/alert-component.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { NgChartsModule } from 'ng2-charts';
+import { BarChartComponent } from './bar-chart/bar-chart.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +30,8 @@ import { AlertComponentComponent } from './dynamic-component/alert-component/ale
     UnlessDirective,
     DropdownDirective,
     shortenPipe,
+    DashboardComponent,
+    BarChartComponent,
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),
@@ -34,6 +39,7 @@ import { AlertComponentComponent } from './dynamic-component/alert-component/ale
     AppRoutingModule,
     HttpClientModule,
     MaterialModule,
+    NgChartsModule,
   ],
   providers: [
     ProductsService,

@@ -1,0 +1,165 @@
+<div style="background-color: lightgreen;">
+    <div class="p-5">
+        <div class="row">
+            <div class="col-3">
+                <app-hcai-multi-select
+                    [dropdownDataList]="dropdownDataList"
+                    [showSearchBar]=false
+                    [showTotalResultCount]=false
+                ></app-hcai-multi-select>
+            </div>
+        </div>
+    </div>
+    
+    <hr>
+    <hr>
+    
+    <div class="p-5">
+        <div class="row">
+            <div class="col-4">
+                <app-hcai-multi-select
+                    [dropdownDataList]="dropdownDataList"
+                    [showSearchBar]=true
+                    [showTotalResultCount]=true
+                    [maxRecordsToDisplayAtOnce]="6"
+                    [searchBarPlaceHolder]="searchBarPlaceHolder"
+                    (listSelectedValues)="listSelectedValues($event)"
+                ></app-hcai-multi-select>
+            </div>
+        </div>
+    </div>
+    
+    <hr>
+    <hr>
+
+    <div class="p-5">
+        <div class="row">
+            <div class="col-4">
+                <app-hcai-multi-select
+                    [dropdownDataList]="dropdownDataList"
+                    [showSearchBar]=true
+                    [showTotalResultCount]=false
+                    [maxRecordsToDisplayAtOnce]="6"
+                    [searchBarPlaceHolder]="searchBarPlaceHolder"
+                    (listSelectedValues)="listSelectedValues($event)"
+                ></app-hcai-multi-select>
+            </div>
+        </div>
+    </div>
+</div>
+    
+    <!-- <ng-container *ngFor="let x of parent; let last = last;">
+        <div class="row margin-bottom-10px" *ngFor="let y of x">
+          <div class="col-sm-12">
+            <div class="row margin-top-10px">
+                <div class="col-sm-12">
+                  <div class="sub-heading">{{y}}</div>
+                </div>
+            </div>
+            
+            <div class="row margin-bottom-10px">
+                <div class="col-sm-12">
+                    Showing all associated {{y}}s that are not archived.
+                </div>
+            </div>
+    
+            <app-dynamic-mat-table [data]="showData" [columnsToDisplayLinks]="columnsToDisplayLinks"></app-dynamic-mat-table>
+            <table width="100%">
+              <thead>
+                <tr>
+                    <th width="20%"></th>
+                    <th width="20%"></th>
+                    <th width="20%"></th>
+                    <th width="20%"></th>
+                    <th width="20%"></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <span class="color-blue strong" style="float: right;"> 
+                            Non-archived Sub-total: 
+                        </span>
+                    </td>
+                    <td>
+                        <span class="align-col-text-right">
+                            $24,000.00
+                        </span>
+                    </td>
+                    <td>
+                        <span class="align-col-text-right">
+                            $24,000.00
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <span class="color-blue strong" style="float: right;">
+                            Archived Sub-total:
+                        </span>	
+                    </td>
+                    <td>
+                        <span class="align-col-text-right">
+                            $24,000.00
+                        </span>
+                    </td>
+                    <td>
+                        <span class="align-col-text-right">
+                            $24,000.00
+                        </span>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td class="border-top border-bottom">
+                        <span class="color-blue strong" style="float: right;">
+                            Total (including taxes):
+                        </span>	
+                    </td>
+                    <td class="border-top border-bottom">
+                        <span class="align-col-text-right">
+                            $24,000.00
+                        </span>
+                    </td>
+                    <td class="border-top border-bottom">
+                        <span class="align-col-text-right">
+                            $24,000.00
+                        </span>
+                    </td>
+                </tr>
+    
+                <tr>
+                    <td></td>
+                    <td></td>
+                    <td>
+                        <span class="color-blue strong" style="float: right;">
+                            Total Taxes:
+                        </span>	
+                    </td>
+                    <td>
+                        <span class="align-col-text-right">
+                            $24,000.00
+                        </span>
+                    </td>
+                    <td>
+                        <span class="align-col-text-right">
+                            $24,000.00
+                        </span>
+                    </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+    
+        </div>
+    
+        <div *ngIf="!last" class="seprator margin-top-10px margin-bottom-10px"></div>
+    </ng-container> -->
+    
+    

@@ -1,0 +1,48 @@
+mat-header-row {
+    min-height: 23px;
+    background-color: #ccc;
+}
+
+mat-row, mat-footer-row {
+    min-height: 23px;
+}
+
+mat-cell {
+    font-size: 12px;
+}
+/* 
+mat-cell:nth-child(1) {
+    background-color: #f2f2f26e;
+} */
+
+mat-row:nth-child(odd) {
+    background-color: #ededed;
+}
+
+mat-header-cell {
+    color: #069;
+    font-size: 13px;
+}
+
+mat-header-cell:last-of-type {
+    color: black;
+    font-size: 13px;
+}
+mat-header-cell:nth-last-of-type(2) {
+    color: black;
+    font-size: 13px;
+}
+
+pagination-controls {
+    float: right;
+}
+
+mat-header-row, mat-footer-row {
+    border-width: 0;
+}
+
+.mergedColumns {
+    border-bottom: 1px solid black;
+    width: 100%;
+    text-align: center;
+}

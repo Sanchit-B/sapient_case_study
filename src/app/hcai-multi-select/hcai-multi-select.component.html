@@ -1,0 +1,66 @@
+<div style="position: relative;" id="multiselect-dropdown" #multiselectDD tabindex="0" (keyup.enter)="showHideOptions($event, $event.target.id)">
+    <div class="row multiselect-dropdown" id="multiselect-dropdown" (click)="showHideOptions($event, 'multiselect-dropdown')">
+        <div class="col-sm-11 overflow-text">
+            {{selectedValuesToDisplay}}
+        </div>
+        <div class="col-sm-1" style="text-align: right; padding-left: 0; padding-right: 3px;">
+            <img src="assets/images/wklist_arrow_down.gif" alt="arrow down">
+        </div>
+    </div>
+
+    <div 
+        *ngIf="showOptions" 
+        [ngClass]="{'position-options-downwards': showOptionsDownwards, 'position-options-upwards': !showOptionsDownwards}"
+        id="multiselect-optionsDropdown"
+    >
+        <div 
+            class="row options-div"
+        >
+            <ng-container *ngIf="dropdownDataList | filterDropDownList:searchTerm as filteredItems" >
+                <div class="col-12" *ngIf="showSearchBar">
+                    <input 
+                        type="input" 
+                        name="search_bar"
+                        class="search_bar"
+                        id="search_bar" 
+                        [placeholder]="searchBarPlaceHolder"
+                        [(ngModel)]="searchTerm"
+                    >
+                    <span style="margin-left: -30px;">
+                        <img src="assets/images/MultiSelectSearchTextBoxIcon.png" style="transform: rotate(-90deg);">
+                    </span>
+                </div>
+                <div class="col-12 options-div options-div-scroll">
+                    <ng-container *ngFor="let item of filteredItems.slice(0,maxRecordsToDisplayAtOnce); let i=index;">
+                        <div 
+                            class="col-12 multiselect-options" 
+                            [ngClass]="{'highlight-selected': doesExistsInSelectedValues(item.Key) > -1}"
+                            (click)="selectValue(item)"
+                            (keyup.enter)="selectValue(item)"
+                            (keyup.arrowDown)="movefocus($event, 'arrowDown')"
+                            (keyup.arrowUp)="movefocus($event, 'arrowUp')"
+                            tabindex="0"
+                        >
+                            <input 
+                                type="checkbox" 
+                                [name]="'chkbx_' + i" 
+                                [id]="'chkbx_' + i" 
+                                tabindex="-1"
+                                style="margin: 5px 5px;"
+                                [checked]="doesExistsInSelectedValues(item.Key) > -1"
+                            >
+                            <span style="vertical-align: text-bottom; font-size: 10px;">{{item.Value}}</span>
+                        </div>
+                    </ng-container>
+                    <div class="col-12" *ngIf="showSearchBar && showTotalResultCount">
+                        <i style="color: blue; font-size: 12px;">
+                            Showing first 
+                            {{maxRecordsToDisplayAtOnce <= filteredItems.length ? maxRecordsToDisplayAtOnce : filteredItems.length}} 
+                            of {{filteredItems.length}}. Continue typing to refine the list.
+                        </i>
+                    </div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,80 @@
+
+<div class="pt-2 m-2">
+    <div *ngIf="totalCnt > 10" class="row">
+      <div class="col-12" style="float: right;">
+          <ngb-pagination 
+              [rotate]="true" 
+              [ellipses]="true" 
+              [boundaryLinks]="false" 
+              [maxSize]="3"
+              [collectionSize]="totalCnt" 
+              [(page)]="page" 
+              [pageSize]="pageSize" 
+              (pageChange)="pageChanged($event)"
+              aria-label="Custom pagination"
+          >
+            <ng-template ngbPaginationPrevious> {{ previousLabel }} </ng-template>
+            <ng-template ngbPaginationEllipsis>...</ng-template>
+            <ng-template ngbPaginationNumber let-page>{{ page }}</ng-template>
+            <ng-template ngbPaginationNext> {{ NextLabel }} </ng-template>
+          </ngb-pagination>
+      </div>
+    </div>
+
+    <div class="mat-elevation-z8" [style.width]="'50%'">
+        <mat-table #table [dataSource]="dataSource" matSort [matSortActive]="sortProperty" [matSortDirection]="sortDirection">
+      
+          <ng-container [matColumnDef]="column" *ngFor="let column of displayedColumns;let i = index;">
+            <mat-header-cell 
+              *matHeaderCellDef 
+              [style.width]="'50%'"
+              [mat-sort-header]="isSortingDiasbledColumn(column) ? column : null" 
+              [disabled]=" isSortingDiasbledColumn(column) ? true : false "
+            > {{column}} 
+            </mat-header-cell>
+
+            <mat-cell *matCellDef="let row"> 
+              <ng-container *ngIf="columnsToDisplayLinks.indexOf(column) == -1; else linkColumn">
+                {{row[column]}}
+              </ng-container>
+              <ng-template #linkColumn>
+                <a href="" (click)="PopupWindow(row[column].split('$$')[0], $event)" >{{ row[column].split('$$')[1]}}</a>
+              </ng-template>
+            </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="header-row-first-group">
+            <mat-header-cell 
+                *matHeaderCellDef 
+                [style.text-align]="center"
+                [attr.colspan]="2"> 
+            </mat-header-cell>
+          </ng-container>
+          
+          <ng-container matColumnDef="header-row-second-group">
+            <mat-header-cell 
+                *matHeaderCellDef 
+                [style.text-align]="center"
+                [attr.colspan]="2"
+                > 
+            </mat-header-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="header-row-third-group">
+            <mat-header-cell 
+                *matHeaderCellDef 
+                [style.text-align]="center"
+                [attr.colspan]="2"
+                > 
+                <div class="mergedColumns">
+                    Pre-Approved Amount 
+                </div>
+            </mat-header-cell>
+          </ng-container>
+        
+          <mat-header-row *matHeaderRowDef="['header-row-first-group', 'header-row-second-group', 'header-row-third-group']"></mat-header-row>
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+        </mat-table>
+    </div>
+</div>
