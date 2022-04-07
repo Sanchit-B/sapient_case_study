@@ -1,8 +1,8 @@
 import { Component, ElementRef, EventEmitter, HostListener, Input, OnInit, Output, ViewChild } from '@angular/core';
 
 export interface dropdownData {
-  Key: string;
-  Value: string;
+  ID: string;
+  Text: string;
 }
 
 @Component({
@@ -23,10 +23,11 @@ export class HcaiMultiSelectComponent implements OnInit {
   @Output() listSelectedValues = new EventEmitter();
   
   searchTerm = "";
+  title="Shortcut keys: [Enter] for Opening, Closing & Selecting values from dropdown. [UP] for Previous Value. [DOWN] for Next Value.";
 
   anyValue = {
-    Key: null,
-    Value: 'Any'
+    ID: null,
+    Text: 'Any'
   };
   selectedValues: dropdownData[] = [this.anyValue];
   selectedValuesToDisplay = "";
@@ -39,7 +40,7 @@ export class HcaiMultiSelectComponent implements OnInit {
   ngOnInit(): void {}
 
   selectValue(item: dropdownData) {
-    let idx = this.doesExistsInSelectedValues(item.Key);
+    let idx = this.doesExistsInSelectedValues(item.ID);
     if(idx == -1) {
       let anyIdx = this.doesExistsInSelectedValues('Any');
       if(anyIdx > -1) {
@@ -58,7 +59,7 @@ export class HcaiMultiSelectComponent implements OnInit {
 
   doesExistsInSelectedValues(val) {
     let foundIdx = this.selectedValues.findIndex((drpdownItem) => {
-      return drpdownItem.Key === val || drpdownItem.Value === val
+      return drpdownItem.ID === val || drpdownItem.Text === val
     });
 
     return foundIdx;
@@ -73,7 +74,7 @@ export class HcaiMultiSelectComponent implements OnInit {
     }
 
     this.selectedValues.forEach((obj, i) => {
-      this.selectedValuesToDisplay += obj.Value + (i < this.selectedValues.length - 1 ? '; ' : '')
+      this.selectedValuesToDisplay += obj.Text + (i < this.selectedValues.length - 1 ? '; ' : '')
     });
   }
 

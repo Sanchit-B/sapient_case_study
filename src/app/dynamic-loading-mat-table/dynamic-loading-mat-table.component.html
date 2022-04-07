@@ -6,6 +6,7 @@
                     [dropdownDataList]="dropdownDataList"
                     [showSearchBar]=false
                     [showTotalResultCount]=false
+                    (listSelectedValues)="listSelectedValues1($event)"
                 ></app-hcai-multi-select>
             </div>
         </div>
@@ -21,9 +22,9 @@
                     [dropdownDataList]="dropdownDataList"
                     [showSearchBar]=true
                     [showTotalResultCount]=true
-                    [maxRecordsToDisplayAtOnce]="6"
-                    [searchBarPlaceHolder]="searchBarPlaceHolder"
-                    (listSelectedValues)="listSelectedValues($event)"
+                    [maxRecordsToDisplayAtOnce]="100"
+                    searchBarPlaceHolder="Find File Owners..."
+                    (listSelectedValues)="listSelectedValues2($event)"
                 ></app-hcai-multi-select>
             </div>
         </div>
@@ -40,8 +41,8 @@
                     [showSearchBar]=true
                     [showTotalResultCount]=false
                     [maxRecordsToDisplayAtOnce]="6"
-                    [searchBarPlaceHolder]="searchBarPlaceHolder"
-                    (listSelectedValues)="listSelectedValues($event)"
+                    searchBarPlaceHolder="Find Insurer..."
+                    (listSelectedValues)="listSelectedValues3($event)"
                 ></app-hcai-multi-select>
             </div>
         </div>

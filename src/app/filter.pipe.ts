@@ -10,7 +10,7 @@ export class FilterPipe implements PipeTransform {
     if(!list || !searchTerm) return list;
     
     return list.filter((item) => {
-      return item.Value.toLowerCase().includes(searchTerm.toLowerCase())
+      return item.Text.toString().toLowerCase().includes(searchTerm.toLowerCase())
     });
   }
 

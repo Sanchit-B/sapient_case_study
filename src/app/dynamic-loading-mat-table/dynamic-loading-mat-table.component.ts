@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { dropdownData } from '../hcai-multi-select/hcai-multi-select.component';
 
@@ -17,142 +18,8 @@ export interface Element {
 })
 export class DynamicLoadingMatTableComponent implements OnInit {
 
-    dropdownDataList: dropdownData[] = [
-        {
-          Key: '1',
-          Value: 'sanchit'
-        },
-        {
-          Key: '2',
-          Value: 'sanchit bansal'
-        },
-        {
-          Key: '3',
-          Value: 'Parul'
-        },
-        {
-          Key: '4',
-          Value: 'rohit'
-        },
-        {
-          Key: '5',
-          Value: 'sanchit Alternative Therapies asdbisa ijcnsdjcno sndnocinsdonvcojn sono'
-        },
-        {
-          Key: '6',
-          Value: 'sam'
-        },
-        {
-          Key: '7',
-          Value: 'samagra'
-        },
-        {
-          Key: '8',
-          Value: 'ashish'
-        },
-        {
-          Key: '9',
-          Value: 'ranjan'
-        }
-    ];
-
-    // dropdownDataList: dropdownData[] = [
-    //     {
-    //        "ID":"1260",
-    //        "Text":"artf1242500_sap_child1"
-    //     },
-    //     {
-    //        "ID":"1261",
-    //        "Text":"artf1242500_sap_child2"
-    //     },
-    //     {
-    //        "ID":"4291",
-    //        "Text":"CHild_auto"
-    //     },
-    //     {
-    //        "ID":"1073",
-    //        "Text":"child_uat"
-    //     },
-    //     {
-    //        "ID":"13721",
-    //        "Text":"ChildTestIns"
-    //     },
-    //     {
-    //        "ID":"582",
-    //        "Text":"CHILEINSURER_may31"
-    //     },
-    //     {
-    //        "ID":"12786",
-    //        "Text":"Guinevere Tashya"
-    //     },
-    //     {
-    //        "ID":"13838",
-    //        "Text":"JItesh_child_insurerw"
-    //     },
-    //     {
-    //        "ID":"1713",
-    //        "Text":"Port Insurer"
-    //     },
-    //     {
-    //        "ID":"8678",
-    //        "Text":"PS11"
-    //     },
-    //     {
-    //        "ID":"191",
-    //        "Text":"SAP_child ins"
-    //     },
-    //     {
-    //        "ID":"210",
-    //        "Text":"Sap_child_new1"
-    //     },
-    //     {
-    //        "ID":"1413",
-    //        "Text":"sap_child_test_1"
-    //     },
-    //     {
-    //        "ID":"1414",
-    //        "Text":"sap_child_test_2"
-    //     },
-    //     {
-    //        "ID":"37",
-    //        "Text":"Sapient Insurer1121AA12"
-    //     },
-    //     {
-    //        "ID":"12620",
-    //        "Text":"SapInsChild1"
-    //     },
-    //     {
-    //        "ID":"12621",
-    //        "Text":"SapInsChild2"
-    //     },
-    //     {
-    //        "ID":"13316",
-    //        "Text":"Test"
-    //     },
-    //     {
-    //        "ID":"3369",
-    //        "Text":"testchildins"
-    //     },
-    //     {
-    //        "ID":"13317",
-    //        "Text":"Testtt"
-    //     },
-    //     {
-    //        "ID":"10952",
-    //        "Text":"UATData-AK-IHP-3914-B"
-    //     },
-    //     {
-    //        "ID":"10953",
-    //        "Text":"UATData-AK-IHP-3914-C"
-    //     },
-    //     {
-    //        "ID":"13318",
-    //        "Text":"ZakariyaTest"
-    //     }
-    // ]
+    dropdownDataList: dropdownData[] = [];
     
-    searchBarPlaceHolder="Find File Owners...";
-
     parent = [['OCF18', 'OCF21B'], ['OCF23', 'OCF21C'], ['Form1']];
     data: Element[] = [
         {
@@ -318,14 +185,36 @@ export class DynamicLoadingMatTableComponent implements OnInit {
     ];
     showData = [];
     columnsToDisplayLinks = [];
-    constructor() { }
+    constructor(
+        private _http: HttpClient
+    ) { }
 
     ngOnInit(): void {
         this.showData = this.data;
         this.columnsToDisplayLinks = ['Document'];
+        this.getdata();
     }
 
-    listSelectedValues(event: any) {
-        console.log(event);
+    listSelectedValues1(event: any) {
+        console.log('1', event);
+    }
+
+    listSelectedValues2(event: any) {
+        console.log('2', event);
+    }
+
+    listSelectedValues3(event: any) {
+        console.log('3', event);
+    }
+
+    getdata() {
+        this.getClaimants().subscribe((res: dropdownData[]) => {
+          console.log(res);
+          this.dropdownDataList = res;
+        });
+    }
+
+    getClaimants() {
+        return this._http.get("assets/multiselect.json");
     }
 }

@@ -1,5 +1,5 @@
 <div style="position: relative;" id="multiselect-dropdown" #multiselectDD tabindex="0" (keyup.enter)="showHideOptions($event, $event.target.id)">
-    <div class="row multiselect-dropdown" id="multiselect-dropdown" (click)="showHideOptions($event, 'multiselect-dropdown')">
+    <div class="row multiselect-dropdown" id="multiselect-dropdown" (click)="showHideOptions($event, 'multiselect-dropdown')" [title]="title">
         <div class="col-sm-11 overflow-text">
             {{selectedValuesToDisplay}}
         </div>
@@ -34,7 +34,7 @@
                     <ng-container *ngFor="let item of filteredItems.slice(0,maxRecordsToDisplayAtOnce); let i=index;">
                         <div 
                             class="col-12 multiselect-options" 
-                            [ngClass]="{'highlight-selected': doesExistsInSelectedValues(item.Key) > -1}"
+                            [ngClass]="{'highlight-selected': doesExistsInSelectedValues(item.ID) > -1}"
                             (click)="selectValue(item)"
                             (keyup.enter)="selectValue(item)"
                             (keyup.arrowDown)="movefocus($event, 'arrowDown')"
@@ -47,9 +47,9 @@
                                 [id]="'chkbx_' + i" 
                                 tabindex="-1"
                                 style="margin: 5px 5px;"
-                                [checked]="doesExistsInSelectedValues(item.Key) > -1"
+                                [checked]="doesExistsInSelectedValues(item.ID) > -1"
                             >
-                            <span style="vertical-align: text-bottom; font-size: 10px;">{{item.Value}}</span>
+                            <span style="vertical-align: text-bottom; font-size: 10px;">{{item.Text}}</span>
                         </div>
                     </ng-container>
                     <div class="col-12" *ngIf="showSearchBar && showTotalResultCount">
